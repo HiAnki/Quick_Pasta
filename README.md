@@ -1,3 +1,6 @@
+![generalHome](https://github.com/HiAnki/Quick_Pasta/assets/101946629/80147a4e-edad-4569-b63a-35d941de5517)
+
+
 # Food Ordering System
 
 This is a food ordering system built using Spring Boot and MySQL.
@@ -39,7 +42,9 @@ To use this food ordering system:
 ## Screenshots
 
 ![customerHome](https://github.com/HiAnki/Quick_Pasta/assets/101946629/80142ff5-2bc6-4329-8752-2a4c18bd51dd)
+
 ![topDish](https://github.com/HiAnki/Quick_Pasta/assets/101946629/2dfba70d-2d61-4dd2-a4d3-d1c17f90ec81)
+
 ![customerLogin](https://github.com/HiAnki/Quick_Pasta/assets/101946629/7b853ccf-cdfe-40b8-9867-1c9e70a8b9d1)
 ![wrongCredential](https://github.com/HiAnki/Quick_Pasta/assets/101946629/e1f34b50-8c10-411f-9fd1-2a75b8e08486)
 
