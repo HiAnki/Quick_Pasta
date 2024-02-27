@@ -13,5 +13,5 @@ import java.util.List;
 public class CartResponse {
     int cartTotal;
 
-    List<FoodItemResponse> foodItems;
+    List<CartItemResponse> foodItems;
 }

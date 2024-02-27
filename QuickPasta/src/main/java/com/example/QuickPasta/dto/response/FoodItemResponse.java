@@ -1,5 +1,6 @@
 package com.example.QuickPasta.dto.response;
 
+import com.example.QuickPasta.Enum.FoodCategory;
 import com.example.QuickPasta.model.MenuItem;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -10,11 +11,20 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @Builder
 public class FoodItemResponse {
-    int totalQuantity;
-
-    int totalPrice;
+//    int totalQuantity;
+//
+//    int totalPrice;
+//
+//    String dishName;
+//
+//    String restaurantName;
 
     String dishName;
-
+    String description;
+    int price;
+    boolean available;
     String restaurantName;
+    int howManyTimesOrdered;
+    FoodCategory foodCategory;
+    boolean veg;
 }

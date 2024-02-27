@@ -1,5 +1,6 @@
 package com.example.QuickPasta.model;
 
+import com.example.QuickPasta.Enum.FoodCategory;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -16,19 +17,34 @@ public class FoodItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    int totalQuantity;
+    String dishName;
 
-    int totalPrice;
+    int price;
+
+    int howManyTimesOrdered;
+
+    String description;
+
+    boolean available;
+
+    boolean veg;
+
+    @Enumerated(EnumType.STRING)
+    FoodCategory foodCategory;
 
     @ManyToOne
     @JoinColumn
-    Cart cart;
+    Restaurant restaurant;
 
-    @ManyToOne
-    @JoinColumn
-    MenuItem menuItem;
+//    @ManyToOne
+//    @JoinColumn
+//    Cart cart;
 
-    @ManyToOne
-    @JoinColumn
-    OrderEntity order;
+//    @ManyToOne
+//    @JoinColumn
+//    MenuItem menuItem;
+//
+//    @ManyToOne
+//    @JoinColumn
+//    OrderEntity order;
 }

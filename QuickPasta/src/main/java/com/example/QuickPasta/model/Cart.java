@@ -25,9 +25,13 @@ public class Cart {
     @JoinColumn
     Customer customer;
 
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+    List<CartItem> cartItemList = new ArrayList<>();
+
 //    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
 //    List<MenuItem> foodItemList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
-    List<FoodItem> foodItemList = new ArrayList<>();
+//    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+//    List<FoodItem> foodItemList = new ArrayList<>();
+
 }

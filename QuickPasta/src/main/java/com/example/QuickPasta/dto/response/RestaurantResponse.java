@@ -1,5 +1,6 @@
 package com.example.QuickPasta.dto.response;
 
+import com.example.QuickPasta.Enum.FoodCategory;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -16,7 +17,6 @@ public class RestaurantResponse {
 
     String address;
 
-    boolean open;
+    boolean takingOrder;
 
-    List<MenuItemResponse> menu;
 }

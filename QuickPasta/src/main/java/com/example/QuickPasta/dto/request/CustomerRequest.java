@@ -22,5 +22,8 @@ public class CustomerRequest {
 
     String address;
 
-    String dob;
+    String password;
+
+    String username;
+
 }

@@ -12,8 +12,8 @@ public class CustomerTransformer {
                 .gender(customerRequest.getGender())
                 .email(customerRequest.getEmail())
                 .phoneNo(customerRequest.getPhoneNo())
+                .password(customerRequest.getPassword())
                 .address(customerRequest.getAddress())
-                .dob(customerRequest.getDob())
                 .build();
     }
 

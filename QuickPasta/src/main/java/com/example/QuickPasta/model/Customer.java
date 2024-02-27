@@ -27,6 +27,12 @@ public class Customer {
     @NotBlank
     String name;
 
+    String password;
+
+    String role;
+
+    String username;
+
     @Enumerated(EnumType.STRING)
     Gender gender;
 
@@ -39,8 +45,6 @@ public class Customer {
 
     @NotBlank
     String address;
-    @NotBlank
-    String dob;
 
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     Cart cart;

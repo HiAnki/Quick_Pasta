@@ -14,8 +14,9 @@ public class RestaurantTransformer {
                 .address(restaurantRequest.getAddress())
                 .email(restaurantRequest.getEmail())
                 .availableFoodItems(new ArrayList<>())
-                .orders(new ArrayList<>())
-                .open(true)
+                .takingOrder(true)
+                .password(restaurantRequest.getPassword())
+                .rating(restaurantRequest.getRating())
                 .build();
     }
 
@@ -23,8 +24,7 @@ public class RestaurantTransformer {
         return RestaurantResponse.builder()
                 .name(restaurant.getName())
                 .address(restaurant.getAddress())
-                .open(restaurant.isOpen())
-                .menu(MenuItemTransformer.FoodItemListToFoodResponseList(restaurant.getAvailableFoodItems()))
+                .takingOrder(restaurant.isTakingOrder())
                 .build();
     }
 }

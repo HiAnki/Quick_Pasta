@@ -39,11 +39,11 @@ public class MenuItem {
 //    @JoinColumn
 //    OrderEntity order;
 
-    @ManyToOne
-    @JoinColumn
-    Restaurant restaurant;
-
-    @OneToMany(mappedBy = "menuItem",cascade = CascadeType.ALL)
-    List<FoodItem> foodItems = new ArrayList<>();
+//    @ManyToOne
+//    @JoinColumn
+//    Restaurant restaurant;
+//
+//    @OneToMany(mappedBy = "menuItem",cascade = CascadeType.ALL)
+//    List<FoodItem> foodItems = new ArrayList<>();
 
 }

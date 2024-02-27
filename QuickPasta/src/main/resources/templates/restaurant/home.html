@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /* The heart of the matter */
+
+        .wrapper {
+            display: flex;
+            overflow-x: auto;
+            margin: 20px;
+        }
+
+        .menu-items {
+            margin-left: 10px;
+        }
+        .card-img-top {
+            max-height: 180px;
+            object-fit: cover;
+        }
+
+        body {
+            background-color: #F8F9FA; /* Light gray */
+        }
+        .navbar {
+            background-color: #FF6F61 !important; /* Red */
+        }
+        .footer {
+            background-color: #333; /* Dark Gray */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #FF6F61; /* Red */
+            border-color: #FF6F61; /* Red */
+        }
+        .btn-primary:hover {
+            background-color: #DC3545; /* Darker Red */
+            border-color: #DC3545; /* Darker Red */
+        }
+        .menu-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .category-slider {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .category-card {
+            display: inline-block;
+            width: 300px;
+            margin-right: 10px;
+        }
+        .float-right {
+            margin-left: 1000px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+</style>
+</head>
+<body>
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Restaurant</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" style="margin-left:900px;" href="#" th:href="@{/home}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Check Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Edit Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{/home/user/login(logout=true)}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h1 style="margin: 20px;">Welcome to QuickPasta</h1>
+
+<!-- taking order -->
+<label class="float-right">
+    <!-- <p style="display: inline-block; margin-right: 10px;">Taking Orders:</p> -->
+    <button class="btn btn-primary">Taking Orders?</button>
+    <p style="display: inline-block;">YES</p>
+    <P style="display: inline-block;">NO</P>
+</label>
+
+<!-- heading -->
+<div style="width: auto; background-color: #FF6F61; margin: 20px; ">
+    <h2 style="margin: 20px; color: white;">Menu Items</h2>
+</div>
+
+<!-- sub headings -->
+<h3 style="margin: 20px;">Starter</h3>
+<div class="wrapper">
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1597393353415-b3730f3719fe?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="pasta">
+            <div class="card-body">
+                <h5 class="card-title">Fettuccine Alfredo</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1607375658859-39f31567ce13?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="noodles">
+            <div class="card-body">
+                <h5 class="card-title">Spaghetti alla Carbonara</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1554295550-0b7069dfa034?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="pasta">
+            <div class="card-body">
+                <h5 class="card-title">Lasagna al Forno</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1607375658859-39f31567ce13?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Cannelloni di Carne</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1597393353296-d149e4d4d771?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Rigatoni Bolognese</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1597393353296-d149e4d4d771?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Rigatoni Bolognese</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1597393353296-d149e4d4d771?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Rigatoni Bolognese</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- sub headings -->
+<h3 style="margin: 20px; margin-top: 40px;">Salad</h3>
+<div class="wrapper">
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1604909052743-94e838986d24?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="pasta">
+            <div class="card-body">
+                <h5 class="card-title">Fettuccine Alfredo</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1571342579397-fe16329793bf?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="noodles">
+            <div class="card-body">
+                <h5 class="card-title">Spaghetti alla Carbonara</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://plus.unsplash.com/premium_photo-1694977744623-4f3fb3612c67?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="pasta">
+            <div class="card-body">
+                <h5 class="card-title">Lasagna al Forno</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1607375658859-39f31567ce13?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Cannelloni di Carne</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1597393353296-d149e4d4d771?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Rigatoni Bolognese</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1597393353296-d149e4d4d771?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Rigatoni Bolognese</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1597393353296-d149e4d4d771?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Rigatoni Bolognese</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- sub headings -->
+<h3 style="margin: 20px; margin-top: 40px;">Main Course</h3>
+<div class="wrapper">
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1597393353415-b3730f3719fe?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="pasta">
+            <div class="card-body">
+                <h5 class="card-title">Fettuccine Alfredo</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1607375658859-39f31567ce13?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="noodles">
+            <div class="card-body">
+                <h5 class="card-title">Spaghetti alla Carbonara</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1554295550-0b7069dfa034?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="pasta">
+            <div class="card-body">
+                <h5 class="card-title">Lasagna al Forno</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1607375658859-39f31567ce13?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Cannelloni di Carne</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1597393353296-d149e4d4d771?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Rigatoni Bolognese</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1597393353296-d149e4d4d771?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Rigatoni Bolognese</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="menu-items">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1597393353296-d149e4d4d771?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Rigatoni Bolognese</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p style="font-weight: 700;">Price: &#8377 100</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <span>&copy; 2024 Restaurant. All rights reserved.</span>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

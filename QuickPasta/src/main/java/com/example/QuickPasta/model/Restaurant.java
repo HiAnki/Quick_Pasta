@@ -1,5 +1,6 @@
 package com.example.QuickPasta.model;
 
+import com.example.QuickPasta.Enum.FoodCategory;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -26,15 +27,29 @@ public class Restaurant {
 
     String address;
 
+    String password;
+
+    String username;
+
+    String role;
+
     @Email
     @Column(unique = true)
     String email;
 
-    boolean open;
+    boolean takingOrder;
+
+    double rating;
+
+//    @Enumerated(EnumType.STRING)
+//    List<FoodCategory> menu = new ArrayList<>();
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
-    List<MenuItem> availableFoodItems = new ArrayList<>();
+    List<FoodItem> availableFoodItems = new ArrayList<>();
 
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
-    List<OrderEntity> orders = new ArrayList<>();
+//    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+//    List<MenuItem> availableFoodItems = new ArrayList<>();
+
+//    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+//    List<OrderEntity> orders = new ArrayList<>();
 }

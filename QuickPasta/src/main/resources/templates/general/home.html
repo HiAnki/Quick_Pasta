@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickPasta - Home</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #F8F9FA; /* Light gray */
+    }
+    .navbar {
+      background-color: #FF6F61 !important; /* Red */
+    }
+    .jumbotron {
+      background-image: url('https://via.placeholder.com/1500x400?text=QuickPasta+Food+Ordering');
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000000;
+      background-color: #FFABAB; /* Light Red */
+    }
+    .btn-primary {
+      background-color: #FF6F61; /* Red */
+      border-color: #FF6F61; /* Red */
+    }
+    .btn-hero {
+      padding: 20px 40px;
+      font-size: 2rem;
+    }
+    .btn-primary:hover {
+      background-color: #DC3545; /* Darker Red */
+      border-color: #DC3545; /* Darker Red */
+    }
+    .card {
+      background-color: #F0F0F0; /* Lighter Gray */
+    }
+    .footer {
+      background-color: #333; /* Dark Gray */
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .restaurant-rating {
+      color: #FFD700; /* Gold */
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">QuickPasta</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a style="margin-left: 300px; color: white" class="nav-link" href="#" th:href="@{/home/user/register}">Customer Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: white" class="nav-link" href="#" th:href="@{/home/rest/register}">Restaurant Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: white" class="nav-link" href="#" th:href="@{/customer/home}">Customer Login</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: white" class="nav-link" href="#" th:href="@{/restaurant/home}">Restaurant Login</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: white" class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: white" class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="jumbotron jumbotron-fluid d-flex align-items-center" style="background-image: url('https://images.unsplash.com/photo-1608897013039-887f21d8c804?q=80&w=1592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; height: 100vh; background-color: rgba(255, 255, 255, 0.8);">
+  <div class="container text-center">
+    <h1 class="display-4">Welcome to QuickPasta</h1>
+    <p class="lead">Order your favorite pasta dishes online</p>
+    <a class="btn btn-primary btn-lg btn-hero" href="#" th:href="@{/customer/login}" role="button">Order Now</a>
+  </div>
+</div>
+
+<div class="container">
+  <h2 class="text-center mb-4">Our Top Dishes</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1611270629569-8b357cb88da9?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Dish 1" style="height: 232px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Dish 1</h5>
+          <p class="card-text">Description of Dish 1</p>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Dish 2" style="height: 232px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Dish 2</h5>
+          <p class="card-text">Description of Dish 2</p>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Dish 3" style="height: 232px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Dish 3</h5>
+          <p class="card-text">Description of Dish 3</p>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Dish 4" style="height: 232px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Dish 4</h5>
+          <p class="card-text">Description of Dish 4</p>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1598866594230-a7c12756260f?q=80&w=1608&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Dish 5" style="height: 232px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Dish 5</h5>
+          <p class="card-text">Description of Dish 5</p>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1617474019977-0e105d1b430e?q=80&w=1562&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Dish 6" style="height: 232px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Dish 6</h5>
+          <p class="card-text">Description of Dish 6</p>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Our Top Restaurants</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Restaurant+1" class="card-img-top" alt="Restaurant 1">
+        <div class="card-body">
+          <h5 class="card-title">Restaurant 1</h5>
+          <p class="card-text restaurant-rating">Rating: ★★★★</p>
+          <a href="#" class="btn btn-primary">View Menu</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Restaurant+2" class="card-img-top" alt="Restaurant 2">
+        <div class="card-body">
+          <h5 class="card-title">Restaurant 2</h5>
+          <p class="card-text restaurant-rating">Rating: ★★★☆</p>
+          <a href="#" class="btn btn-primary">View Menu</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Restaurant+3" class="card-img-top" alt="Restaurant 3">
+        <div class="card-body">
+          <h5 class="card-title">Restaurant 3</h5>
+          <p class="card-text restaurant-rating">Rating: ★★★</p>
+          <a href="#" class="btn btn-primary">View Menu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Restaurant+4" class="card-img-top" alt="Restaurant 4">
+        <div class="card-body">
+          <h5 class="card-title">Restaurant 4</h5>
+          <p class="card-text restaurant-rating">Rating: ★★★★</p>
+          <a href="#" class="btn btn-primary">View Menu</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Restaurant+5" class="card-img-top" alt="Restaurant 5">
+        <div class="card-body">
+          <h5 class="card-title">Restaurant 5</h5>
+          <p class="card-text restaurant-rating">Rating: ★★☆☆</p>
+          <a href="#" class="btn btn-primary">View Menu</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Restaurant+6" class="card-img-top" alt="Restaurant 6">
+        <div class="card-body">
+          <h5 class="card-title">Restaurant 6</h5>
+          <p class="card-text restaurant-rating">Rating: ★★★★</p>
+          <a href="#" class="btn btn-primary">View Menu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer" style="margin-top: 30px;">
+  <div class="container">
+    <span>&copy; 2024 QuickPasta. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

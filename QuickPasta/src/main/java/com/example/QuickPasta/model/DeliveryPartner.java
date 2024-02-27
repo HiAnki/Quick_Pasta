@@ -29,7 +29,7 @@ public class DeliveryPartner {
 
     String DOB;
 
-    @OneToMany(mappedBy = "deliveryPartner", cascade = CascadeType.ALL)
-    List<OrderEntity> orderList = new ArrayList<>();
+//    @OneToMany(mappedBy = "deliveryPartner", cascade = CascadeType.ALL)
+//    List<OrderEntity> orderList = new ArrayList<>();
 
 }

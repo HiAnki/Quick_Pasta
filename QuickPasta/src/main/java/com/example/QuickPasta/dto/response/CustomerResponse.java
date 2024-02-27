@@ -12,6 +12,5 @@ public class CustomerResponse {
     String name;
     String address;
     String phoneNo;
-
     CartResponse cart;
 }

@@ -17,6 +17,12 @@ public class RestaurantRequest {
 
     String email;
 
-    boolean open;
+    String username;
+
+    String password;
+
+    boolean takingOrder;
+
+    double rating;
 
 }

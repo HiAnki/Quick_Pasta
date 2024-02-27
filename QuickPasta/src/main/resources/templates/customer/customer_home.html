@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickPasta - Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+    body {
+      background-color: #F8F9FA; /* Light gray */
+    }
+    .navbar {
+      background-color: #FF6F61 !important; /* Red */
+    }
+    .jumbotron {
+      background-image: url('https://images.unsplash.com/photo-1608897013039-887f21d8c804?q=80&w=1592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000000;
+      background-color: #FFABAB; /* Light Red */
+    }
+    .btn-primary {
+      background-color: #FF6F61; /* Red */
+      border-color: #FF6F61; /* Red */
+    }
+    .btn-primary:hover {
+      background-color: #DC3545; /* Darker Red */
+      border-color: #DC3545; /* Darker Red */
+    }
+    .card {
+      background-color: #F0F0F0; /* Lighter Gray */
+    }
+    .scrollable {
+      height: 400px; /* Set the height */
+      overflow-y: auto; /* Enable vertical scrollbar */
+    }
+    .footer {
+      background-color: #333; /* Dark Gray */
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .search-bar {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#" th:href="@{/home}">QuickPasta</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" th:href="@{/home}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{/home/user/login(logout=true)}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+        <h1 class="display-4">Welcome to QuickPasta</h1>
+        <p class="lead">Order your favorite pasta dishes online</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Order Now</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="input-group search-bar">
+                <input type="text" class="form-control" placeholder="Search for food items...">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 10px; margin-bottom: 20px;">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1611270629569-8b357cb88da9?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" style="height: 232px; object-fit: cover;" alt="Specials">
+                <div class="card-body">
+                    <h5 class="card-title">Specials</h5>
+                    <p class="card-text">Check out our special offers and discounts.</p>
+                    <a href="#" class="btn btn-primary">View Specials</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1617474019977-0e105d1b430e?q=80&w=1562&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Categories" style="height: 232px; object-fit: cover;">
+
+                <!-- <img src="https://via.placeholder.com/300x200?text=Categories" class="card-img-top" alt="Categories"> -->
+                <div class="card-body">
+                    <h5 class="card-title">Categories</h5>
+                    <p class="card-text">Explore our delicious menu categories.</p>
+                    <a href="#" class="btn btn-primary">View Categories</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1598866594230-a7c12756260f?q=80&w=1608&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top"  alt="Top Picks" style="height: 232px; object-fit: cover;">
+                <!-- <img src="https://via.placeholder.com/300x200?text=Top+Picks" class="card-img-top" alt="Top Picks"> -->
+                <div class="card-body">
+                    <h5 class="card-title">Top Picks</h5>
+                    <p class="card-text">Discover our top picks of the week.</p>
+                    <a href="#" class="btn btn-primary">View Top Picks</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Dish 4" style="height: 232px; object-fit: cover;">
+                <!-- <img src="https://via.placeholder.com/300x200?text=Top+Restaurants" class="card-img-top" alt="Top Restaurants"> -->
+                <div class="card-body">
+                    <h5 class="card-title">Top Restaurants</h5>
+                    <p class="card-text">Explore our top-rated restaurants.</p>
+                    <a href="#" class="btn btn-primary">View Top Restaurants</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Dish 4" style="height: 232px; object-fit: cover;">
+                <!-- <img src="https://via.placeholder.com/300x200?text=Browse+Dishes" class="card-img-top" alt="Browse Dishes"> -->
+                <div class="card-body">
+                    <h5 class="card-title">Browse Dishes</h5>
+                    <p class="card-text">Browse through our variety of dishes.</p>
+                    <a href="#" class="btn btn-primary">Browse Dishes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Dish 4" style="height: 232px; object-fit: cover;">
+                <!-- <img src="https://via.placeholder.com/300x200?text=Contact+Us" class="card-img-top" alt="Contact Us"> -->
+                <div class="card-body">
+                    <h5 class="card-title">Contact Us</h5>
+                    <p class="card-text">Have a question? Reach out to us.</p>
+                    <a href="#" class="btn btn-primary">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <span>&copy; 2024 QuickPasta. All rights reserved.</span>
+    </div>
+</footer>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
