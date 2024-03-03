@@ -18,7 +18,7 @@ public class FoodItemResponse {
 //    String dishName;
 //
 //    String restaurantName;
-
+    String id; // uuid
     String dishName;
     String description;
     int price;

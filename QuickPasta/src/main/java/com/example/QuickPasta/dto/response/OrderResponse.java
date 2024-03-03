@@ -16,5 +16,5 @@ public class OrderResponse {
     int totalPrice;
     Date orderTime;
 
-    List<RestaurantOrderItemResponse> orderItems;
+    List<CartItemResponse> orderItems;
 }

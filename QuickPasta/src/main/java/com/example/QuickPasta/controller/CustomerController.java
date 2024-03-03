@@ -7,6 +7,8 @@ import com.example.QuickPasta.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -56,15 +58,27 @@ public class CustomerController {
 //    }
 
     @GetMapping("/home")
-    public String customerHome() {
+    public String customerHome(Model model, @AuthenticationPrincipal UserDetails currentUser) {
+          CustomerResponse customer = customerService.getCustomerDetails(currentUser.getUsername());
+        model.addAttribute("name", customer.getName());
         return "customer/customer_home";
     }
-    @PutMapping("/update/{customerId}")
-    public ResponseEntity updateCustomer(@PathVariable("customerId") int customerId, @RequestBody CustomerRequest customerRequest) {
-        CustomerResponse updatedCustomer = customerService.updateCustomer(customerId,customerRequest);
-        return new ResponseEntity(updatedCustomer, HttpStatus.OK);
+
+    @GetMapping("/update")
+    public String showUpdateCustomer(Model model) {
+        model.addAttribute("customerDto", new CustomerRequest());
+        return "customer/customer_edit";
     }
 
+    @PostMapping("/update")
+    public String updateCustomer(@ModelAttribute("customerDto") CustomerRequest customerRequest) throws Exception{
+        try {
+            CustomerResponse updatedCustomer = customerService.updateCustomer(customerRequest);
+            return "customer/customer_home";
+        } catch (Exception e) {
+            return "customer/customer_home";
+        }
+    }
 
 
 }

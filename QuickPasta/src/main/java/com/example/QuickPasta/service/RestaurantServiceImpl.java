@@ -2,10 +2,12 @@ package com.example.QuickPasta.service;
 
 import com.example.QuickPasta.dto.request.FoodItemRequest;
 import com.example.QuickPasta.dto.request.RestaurantRequest;
+import com.example.QuickPasta.dto.response.FoodItemResponse;
 import com.example.QuickPasta.dto.response.RestaurantResponse;
 import com.example.QuickPasta.exceptions.RestaurantNotFoundException;
 import com.example.QuickPasta.model.FoodItem;
 import com.example.QuickPasta.model.Restaurant;
+import com.example.QuickPasta.repository.FoodItemRepository;
 import com.example.QuickPasta.repository.RestaurantRepository;
 import com.example.QuickPasta.serviceInterface.RestaurantService;
 import com.example.QuickPasta.transformer.FoodItemTransformer;
@@ -16,16 +18,21 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class RestaurantServiceImpl implements RestaurantService{
 
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     final RestaurantRepository restaurantRepository;
+    final FoodItemRepository foodItemRepository;
     @Autowired
-    public RestaurantServiceImpl(RestaurantRepository restaurantRepository) {
+    public RestaurantServiceImpl(RestaurantRepository restaurantRepository, FoodItemRepository foodItemRepository) {
         this.restaurantRepository = restaurantRepository;
+        this.foodItemRepository = foodItemRepository;
     }
 
     @Override
@@ -55,19 +62,23 @@ public class RestaurantServiceImpl implements RestaurantService{
     }
 
     @Override
-    public RestaurantResponse addFoodItemToRestaurant(FoodItemRequest foodRequest) {
-        Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(foodRequest.getRestaurantId());
-        if(optionalRestaurant.isEmpty()) {
-            throw new RestaurantNotFoundException("restaurant does not exit!");
-        }
+    public void addFoodItemToRestaurant(FoodItemRequest foodRequest) {
+//        Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(foodRequest.getRestaurantId());
+//        if(optionalRestaurant.isEmpty()) {
+//            throw new RestaurantNotFoundException("restaurant does not exit!");
+//        }
 
-        Restaurant restaurant = optionalRestaurant.get();
+//        Restaurant restaurant = optionalRestaurant.get();
+//        FoodItem foodItem = FoodItemTransformer.foodItemRequestToFoodItem(foodRequest);
+//        foodItem.setRestaurant(restaurant);
+//        restaurant.getAvailableFoodItems().add(foodItem);
+//        Restaurant savedRestaurant = restaurantRepository.save(restaurant);
+
+//        return RestaurantTransformer.RestaurantToRestaurantResponse(savedRestaurant);
+
         FoodItem foodItem = FoodItemTransformer.foodItemRequestToFoodItem(foodRequest);
-        foodItem.setRestaurant(restaurant);
-        restaurant.getAvailableFoodItems().add(foodItem);
-        Restaurant savedRestaurant = restaurantRepository.save(restaurant);
-
-        return RestaurantTransformer.RestaurantToRestaurantResponse(savedRestaurant);
+        foodItem.setFoodId(String.valueOf(UUID.randomUUID()));
+        FoodItem savedFoodItem = foodItemRepository.save(foodItem);
     }
 
     @Override
@@ -92,4 +103,16 @@ public class RestaurantServiceImpl implements RestaurantService{
         Restaurant restaurant = restaurantOptional.get();
         if(!restaurant.getPassword().equals(restaurantRequest.getPassword())) throw new RestaurantNotFoundException("wrong credentials");
     }
+
+    @Override
+    public List<FoodItemResponse> getAllFoodItems() {
+        List<FoodItem> foodItemList = foodItemRepository.findAll();
+        List<FoodItemResponse> foodItemResponseList = new ArrayList<>();
+        for(FoodItem foodItem: foodItemList) {
+            foodItemResponseList.add(FoodItemTransformer.foodItemToFoodItemResponse(foodItem));
+        }
+
+        return foodItemResponseList;
+    }
+
 }

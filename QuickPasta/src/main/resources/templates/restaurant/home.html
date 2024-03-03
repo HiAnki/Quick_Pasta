@@ -69,14 +69,20 @@
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">Restaurant</a>
+        <a class="navbar-brand" href="#" th:href="@{/home/}">Admin Home</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" style="margin-left:900px;" href="#" th:href="@{/home}">Home</a>
+                    <a class="nav-link" style="margin-left:500px;" href="#" th:href="@{/restaurant/menu}">Menu</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Check Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{/restaurant/menu_item/add}">Add Food Item</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Delete Food Item</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Edit Profile</a>

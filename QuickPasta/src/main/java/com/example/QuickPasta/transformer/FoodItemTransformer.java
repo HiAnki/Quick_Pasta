@@ -8,13 +8,13 @@ public class FoodItemTransformer {
     public static FoodItemResponse foodItemToFoodItemResponse(FoodItem foodItem) {
         return FoodItemResponse.builder()
                 .dishName(foodItem.getDishName())
-                .restaurantName(foodItem.getRestaurant().getName())
                 .foodCategory(foodItem.getFoodCategory())
                 .veg(foodItem.isVeg())
                 .price(foodItem.getPrice())
                 .howManyTimesOrdered(foodItem.getHowManyTimesOrdered())
                 .available(foodItem.isAvailable())
                 .description(foodItem.getDescription())
+                .id(foodItem.getFoodId())
                 .build();
     }
 

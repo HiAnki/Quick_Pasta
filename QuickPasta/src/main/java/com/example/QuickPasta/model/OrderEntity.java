@@ -42,8 +42,11 @@ public class OrderEntity {
 //    @ManyToOne
 //    @JoinColumn
 //    Restaurant restaurant;
+//
+//    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+//    List<RestaurantOrderItem> orderItemList = new ArrayList<>();
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    List<RestaurantOrderItem> orderItemList = new ArrayList<>();
+    List<CartItem> cartItemList = new ArrayList<>();
 
 }

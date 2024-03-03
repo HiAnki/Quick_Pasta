@@ -36,7 +36,7 @@ public class SecurityConfig {
                 .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/home/user/login") // Specify your custom login page URL here
+                .loginPage("/home/user/login")
                 .defaultSuccessUrl("/home/")
                 .failureUrl("/home/user/login?error=true")
                 .permitAll()

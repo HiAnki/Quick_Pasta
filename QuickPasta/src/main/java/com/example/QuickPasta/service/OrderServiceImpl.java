@@ -40,35 +40,35 @@ public class OrderServiceImpl implements OrderService {
         Customer customer = customerOptional.get();
 
         List<CartItem> cartItemList = new ArrayList<>(customer.getCart().getCartItemList());
-        List<RestaurantOrderItem> restaurantOrderItemList = new ArrayList<>();
-
-        HashMap<Integer,List<CartItem>> map = new HashMap<>();
-        for(CartItem cartItem: cartItemList) {
-            int restId = cartItem.getFoodItem().getRestaurant().getId();
-            List<CartItem> temp = map.getOrDefault(restId,new ArrayList<>());
-            temp.add(cartItem);
-            map.put(restId,temp);
-        }
-
-        for(int key: map.keySet()) {
-            int restId = key;
-            List<CartItem> restItems = map.get(key);
-            int total = 0;
-            for(CartItem cartItem: restItems) {
-                total += (cartItem.getQuantity()*cartItem.getFoodItem().getPrice());
-            }
-            RestaurantOrderItem restaurantOrderItem = RestaurantOrderItem.builder()
-                    .restaurantId(key)
-                    .totalPrice(total)
-                    .status(OrderStatus.RECEIVED)
-                    .cartItemList(restItems)
-                    .build();
-            restaurantOrderItemList.add(restaurantOrderItem);
-        }
+//        List<RestaurantOrderItem> restaurantOrderItemList = new ArrayList<>();
+//
+//        HashMap<Integer,List<CartItem>> map = new HashMap<>();
+//        for(CartItem cartItem: cartItemList) {
+//            int restId = cartItem.getFoodItem().getRestaurant().getId();
+//            List<CartItem> temp = map.getOrDefault(restId,new ArrayList<>());
+//            temp.add(cartItem);
+//            map.put(restId,temp);
+//        }
+//
+//        for(int key: map.keySet()) {
+//            int restId = key;
+//            List<CartItem> restItems = map.get(key);
+//            int total = 0;
+//            for(CartItem cartItem: restItems) {
+//                total += (cartItem.getQuantity()*cartItem.getFoodItem().getPrice());
+//            }
+//            RestaurantOrderItem restaurantOrderItem = RestaurantOrderItem.builder()
+//                    .restaurantId(key)
+//                    .totalPrice(total)
+//                    .status(OrderStatus.RECEIVED)
+//                    .cartItemList(restItems)
+//                    .build();
+//            restaurantOrderItemList.add(restaurantOrderItem);
+//        }
         OrderEntity order = OrderEntity.builder()
                 .orderTotal(customer.getCart().getCartTotal())
                 .orderId(String.valueOf(UUID.randomUUID()))
-                .orderItemList(restaurantOrderItemList)
+                .cartItemList(cartItemList)
                 .customer(customer)
                 .build();
 

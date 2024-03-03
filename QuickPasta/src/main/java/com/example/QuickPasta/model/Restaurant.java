@@ -44,8 +44,8 @@ public class Restaurant {
 //    @Enumerated(EnumType.STRING)
 //    List<FoodCategory> menu = new ArrayList<>();
 
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
-    List<FoodItem> availableFoodItems = new ArrayList<>();
+//    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+//    List<FoodItem> availableFoodItems = new ArrayList<>();
 
 //    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
 //    List<MenuItem> availableFoodItems = new ArrayList<>();

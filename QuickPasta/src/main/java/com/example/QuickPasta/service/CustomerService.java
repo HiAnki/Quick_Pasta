@@ -52,22 +52,33 @@ public class CustomerService {
         return CustomerTransformer.CustomerToCustomerResponse(savedCustomer);
     }
 
-    public CustomerResponse updateCustomer(int customerId, CustomerRequest customerRequest) {
-        Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
+    public CustomerResponse updateCustomer(CustomerRequest customerRequest) {
+        Optional<Customer> optionalCustomer = customerRepository.findByEmail(customerRequest.getEmail());
         if(optionalCustomer.isEmpty()) {
             throw new CustomerNotFoundException("Customer does not exist!!");
         }
 
+//        Optional<Customer> optionalCustomer= customerRepository.findByEmail(customerRequest.getEmail());
         Customer existingCustomer = optionalCustomer.get();
-        Customer newCustomer = CustomerTransformer.CustomerRequestToCustomer(customerRequest);
-        newCustomer.setCart(existingCustomer.getCart());
+//        Customer newCustomer = CustomerTransformer.CustomerRequestToCustomer(customerRequest);
+//        newCustomer.setCart(existingCustomer.getCart());
+//
+//        BeanUtils.copyProperties(newCustomer, existingCustomer, "id");
 
-        BeanUtils.copyProperties(newCustomer, existingCustomer, "id");
+        existingCustomer.setAddress(customerRequest.getAddress());
+        existingCustomer.setName(customerRequest.getName());
+        existingCustomer.setPhoneNo(customerRequest.getPhoneNo());
 
         Customer updatedCustomer = customerRepository.save(existingCustomer);
 
         return CustomerTransformer.CustomerToCustomerResponse(updatedCustomer);
 
+    }
+
+    public CustomerResponse getCustomerDetails(String email) {
+        Optional<Customer> customerOptional = customerRepository.findByEmail(email);
+        if(customerOptional.isEmpty()) return null;
+        return CustomerTransformer.CustomerToCustomerResponse(customerOptional.get());
     }
 
     public void customerLogin(CustomerRequest customerRequest) {

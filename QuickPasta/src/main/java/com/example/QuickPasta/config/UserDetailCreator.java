@@ -14,10 +14,12 @@ public class UserDetailCreator implements UserDetails {
 
     String username;
     String password;
+    String name;
     List<GrantedAuthority> authorities;
     public UserDetailCreator(Customer customer) {
         this.username = customer.getEmail();
         this.password = customer.getPassword();
+        this.name = customer.getName();
         this.authorities = new ArrayList<>();
 
         String[] roles = customer.getRole().split(",");
@@ -48,6 +50,8 @@ public class UserDetailCreator implements UserDetails {
     public String getPassword() {
         return this.password;
     }
+
+    public String getName() { return this.name;}
 
     @Override
     public String getUsername() {

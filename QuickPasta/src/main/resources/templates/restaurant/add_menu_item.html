@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your custom CSS styles here if needed -->
+    <style>
+          body {
+              background-image: url('https://images.unsplash.com/photo-1546549032-9571cd6b27df?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              color: black; /* Text color */
+          }
+
+          .card {
+              border: none;
+              box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Light shadow */
+          }
+          .card-header {
+              background-color: #FF6F61; /* Red */
+              color: #fff; /* White text */
+              text-align: center;
+              border-bottom: none; /* Remove border */
+          }
+          .card-body {
+              background-color: #DFE0E5; /* White background */
+          }
+          .form-control {
+              border-color: #CED4DA; /* Light gray border */
+          }
+          .btn-primary {
+              background-color: #FF6F61; /* Red */
+              border-color: #FF6F61; /* Red */
+          }
+          .btn-primary:hover {
+              background-color: #DC3545; /* Darker Red */
+              border-color: #DC3545; /* Darker Red */
+          }
+          .navbar {
+        background-color: #FF6F61 !important; /* Red */
+      }
+      </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">QuickPasta</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item active" style="margin-left: 800px;">
+                    <a class="nav-link" href="#" th:href="@{/restaurant/home}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: white" class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: white" class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="margin-top: 100px;">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Add Food Item</h4>
+                </div>
+                <div class="card-body">
+                    <form action="#" th:action="@{/restaurant/menu_item/add}" th:object="${foodItemDto}" method="post">
+                        <div class="form-group">
+                            <label >Name</label>
+                            <input type="text" class="form-control"  placeholder="Enter dish name" th:field="*{dishName}">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" class="form-control"  placeholder="Enter description" th:field="*{description}">
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="form-control" th:field="*{category}">
+                                <option th:each="category : ${T(com.example.QuickPasta.Enum.FoodCategory).values()}"
+                                        th:value="${category}" th:text="${category}">Category</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label >Price</label>
+                            <input type="number" class="form-control"  placeholder="Enter Price" th:field="*{price}">
+                        </div>
+                        <div class="form-group">
+                            <label>Veg</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio"   value="true" th:field="*{veg}" th:value="${true}">
+                                <label class="form-check-label">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio"   value="false" th:field="*{veg}" th:value="${false}">
+                                <label class="form-check-label">
+                                    No
+                                </label>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Available</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" value="true" th:field="*{available}" th:value="${true}">
+                                <label class="form-check-label">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender"  value="false" th:field="*{available}" th:value="${false}">
+                                <label class="form-check-label">
+                                    No
+                                </label>
+                            </div>
+
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Add your custom JavaScript code here if needed -->
+</body>
+</html>

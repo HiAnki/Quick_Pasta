@@ -8,7 +8,6 @@ public class CartItemTransformer {
     public static CartItemResponse cartItemToCartItemResponse(CartItem cartItem) {
         return CartItemResponse.builder()
                 .foodItemName(cartItem.getFoodItem().getDishName())
-                .restaurantName(cartItem.getFoodItem().getRestaurant().getName())
                 .quantity(cartItem.getQuantity())
                 .totalPrice(cartItem.getQuantity()*cartItem.getFoodItem().getPrice())
                 .howManyPeopleOrdered(cartItem.getFoodItem().getHowManyTimesOrdered())

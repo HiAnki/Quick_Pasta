@@ -13,7 +13,6 @@ public class RestaurantTransformer {
                 .name(restaurantRequest.getName())
                 .address(restaurantRequest.getAddress())
                 .email(restaurantRequest.getEmail())
-                .availableFoodItems(new ArrayList<>())
                 .takingOrder(true)
                 .password(restaurantRequest.getPassword())
                 .rating(restaurantRequest.getRating())

@@ -17,6 +17,8 @@ public class FoodItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    String foodId;  // uuid
+
     String dishName;
 
     int price;
@@ -32,9 +34,9 @@ public class FoodItem {
     @Enumerated(EnumType.STRING)
     FoodCategory foodCategory;
 
-    @ManyToOne
-    @JoinColumn
-    Restaurant restaurant;
+//    @ManyToOne
+//    @JoinColumn
+//    Restaurant restaurant;
 
 //    @ManyToOne
 //    @JoinColumn
